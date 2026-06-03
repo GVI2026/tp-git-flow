@@ -25,6 +25,13 @@ export class TasksController {
     return this.tasksService.create(createTaskDto);
   }
 
+  @ApiOperation({ summary: 'Récupérer les statistiques des tâches' })
+  @ApiResponse({ status: 200, description: 'Statistiques retournées' })
+  @Get('stats')
+  getStats() {
+    return this.tasksService.getStats();
+  }
+
   @ApiOperation({ summary: 'Récupérer toutes les tâches' })
   @ApiResponse({ status: 200, description: 'Liste des tâches' })
   @Get()
