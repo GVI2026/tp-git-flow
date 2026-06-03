@@ -32,6 +32,13 @@ export class TasksController {
     return this.tasksService.findAll();
   }
 
+  @ApiOperation({ summary: 'Statistiques des tâches' })
+  @ApiResponse({ status: 200, description: 'Retourne total, done, pending' })
+  @Get('stats')                          // ← AVANT :id
+  getStats() {
+    return this.tasksService.getStats();
+  }
+
   @ApiOperation({ summary: 'Récupérer une tâche par ID' })
   @ApiResponse({ status: 200, description: 'Tâche trouvée' })
   @ApiResponse({ status: 404, description: 'Tâche introuvable' })
